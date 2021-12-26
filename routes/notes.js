@@ -9,8 +9,8 @@ router.get(
   "/fetchallnotes",
   fetchuser,
   [
-    body("title", "Enter a valid title").isLength({ min: 3 }),
-    body("description", "Enter a valid description").isLength({ min: 2 }),
+    body("title", "Enter a valid title").isLength({ min: 1 }),
+    body("description", "Enter a valid description").isLength({ min: 1 }),
   ],
   async (req, res) => {
     const notes = await Note.find({ user: req.user.id });
@@ -23,8 +23,8 @@ router.post(
   "/addnotes",
   fetchuser,
   [
-    body("title", "Enter a valid title").isLength({ min: 3 }),
-    body("description", "Enter a valid description").isLength({ min: 2 }),
+    body("title", "Enter a valid title").isLength({ min: 1 }),
+    body("description", "Enter a valid description").isLength({ min: 1 }),
   ],
   async (req, res) => {
     try {
